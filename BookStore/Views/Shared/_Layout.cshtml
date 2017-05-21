@@ -1,0 +1,593 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge; charset=UTF-8">
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="copyright" content="&copy;2015 Book Depository Ltd." />
+    <meta name="author" content="Book Depository" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="google-site-verification" content="ogOme2fCVYq3eJxsHzQiMuXsUIRVwYrtI2Xn-U1nNpc" />
+    <meta name="msvalidate.01" content="D45E907CC9A963F78BD3129AAAAFE4F0" />
+    <link rel="shortcut icon" type="image/ico" href="https://d3ogvdx946i4sr.cloudfront.net/favicon-rebranded.ico" />
+    <link rel="apple-touch-icon-precomposed" href="https://d3ogvdx946i4sr.cloudfront.net/apple-touch-icon-rebranded.png" />
+    <link href="https://plus.google.com/+bookdepository/" rel="publisher" />
+
+
+    <meta name="description" content="Book Depository is the world&#039;s most international online bookstore offering over 17 million books with free delivery worldwide." />
+    <meta name="keywords" content="books,free,delivery,worldwide,book,offers,bestsellers,coming soon" />
+    <meta name="Revisit-After" content="30 days" />
+    <link rel="canonical" href="/" />
+    <title>
+        Hoarom BookStore
+    </title>
+
+    <link rel="preload" href="https://d3ogvdx946i4sr.cloudfront.net/assets/v2.4.36/fonts/bdicons.woff" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="https://d3ogvdx946i4sr.cloudfront.net/assets/v2.4.36/css/common.css">
+
+   
+</head>
+<body class="">
+    @using BookStore.Models.Entities;
+    @{
+        String taikhoan = "";
+        KhachHang kh = (KhachHang) Session["user"];
+        //kh.taikhoan = (String)Session["taikhoan"];
+        if ((KhachHang)Session["user"] == null)
+        {
+            //kh = new BookStore.Models.Entities.KhachHang();
+            taikhoan = "Sign in Join";
+        }
+        else { taikhoan = kh.taikhoan; }
+    }
+
+    @*<script>
+
+        if (typeof experimentAndVariation !== 'undefined') {
+            document.body.className += ' ' + experimentAndVariation.cssClassName;
+        }
+    </script>*@
+    <div class="page-slide">
+        <div class="user-nav-wrap ">
+            <div class="user-nav">
+                <ul class="left-nav nav mobile-nav-content" data-order="1">
+                    <li><a href="" class="home-icon-link"><i class="icon-home"></i><span class="show-non-desktop">Home</span></a></li>
+                    <li class="mob-nav-account"><a href=""><i class="icon-em"></i>Contact Us</a></li>
+                    <li class="mob-nav-account"><a rel="nofollow" href=""><i class="icon-info"></i>Help</a></li>
+                </ul>
+                <div class="middle-nav">
+                    @*<div class="free-delivery">
+                        <a rel="nofollow" href="" title="Free delivery worldwide">
+                            <i class="icon-rocket"></i>
+                            Miễn phí cước vận chuyển 
+                        </a>
+                    </div>*@
+                </div>
+                <ul class="right-nav mobile-nav-content" data-order="3">
+                    <li class="mob-nav-account"><a rel="nofollow" ><i class="icon-order-status"></i>Order Status</a></li>
+                    @*<li class="mob-nav-account"><a rel="nofollow" ><i class="icon-wishlist"></i>Wishlist</a></li>*@
+                    <li class="mob-nav-account"><a rel="nofollow" href="/Login/Login"><i class="icon-user"></i>@taikhoan</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="header-wrap ">
+            <header class="header">
+                <div class="non-desktop-header show-non-desktop"></div>
+
+                <div class="primary-wrap">
+                    <button class="mobile-trigger"><i class="icon-menu"></i></button>
+                        <div class="logo">
+                            <h1>
+                                <a href="http://localhost:65014/Home/HomePageContent">
+                                    <img src="/Content/images/logo.png" alt="">  Hoarom
+                                </a>
+                            </h1>
+
+                        </div>
+                    <div class='copy-content' data-target='.right-section .basket-wrap'></div>
+                    <div class="mobile-basket-wrap basket">
+                        <a href="/ShoppingCart/List" class="mobile-basket-btn basket-wrap">
+                            <span class="item-count" data-item-count="0">0</span>
+                            <i class="icon-basket"></i>
+                        </a>
+                    </div>
+                  
+                    <div class="search-wrap" data-url="//suggestions.bookdepository.com/suggestions">
+                        <form id="book-search-form" action="/search">
+                            <div class="el-wrap header-search-el-wrap">
+                                <input type="text" placeholder="Search for books by keyword / title / author / ISBN" name="searchTerm" class="text-input" value="">
+                                <input type="hidden" name="search" value="Find book">
+                                <button class="header-search-btn" type="submit"><span class="text">Tìm kiếm</span></button>
+                            </div>
+                        </form>
+                        <a rel="nofollow" href="" class="advanced-search">Tìm kiếm nâng cao</a>
+                    </div>
+
+                    <div class="free-delivery-wrap">
+                        <div class="free-delivery">
+                            <a rel="nofollow" href="" alt="Free delivery worldwide" title="Free delivery worldwide">
+                                <i class="icon-rocket"></i>
+                                Miễn phí cước vận chuyển
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </header>
+        </div>
+
+        <div class='ribbon-wrap '>
+            <div class="free-delivery-ribbon ">
+                <div class="free-delivery-ribbon-item">
+                    <a rel="nofollow" href="" title="Free delivery worldwide">
+                        <i class="icon-rocket"></i>
+                        Miễn phí cước vận chuyển
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        @using BookStore.Models.Bean;
+
+        @{
+            int Amount = 0;
+            double Total = 0;
+            Cart cart = (Cart)Session["cart"];
+            if (cart != null)
+            {
+                Amount = cart.GetAmountInCart();
+                Total = cart.getTotal();
+            }
+        }
+
+
+        <div class="secondary-header-wrap ">
+            <div class="secondary-header">
+                <ul class="page-links mobile-nav-content" data-order="2">
+                    <li class="show-only-mobile global-nav-deprecate"><a href="">Các loại sách</a></li>
+                    <li class="tbd-dropdown mob-nav-shop">
+                        <a href="#" class="tbd-dropdown-toggle" data-target="category-dropdown-list">Shop by category</a>
+                        <a href="#" class="tbd-dropdown-toggle show-non-desktop" data-target="age-range-dropdown-list">Shop by age range</a>
+                        <ul class="tbd-dropdown-menu" hidden>
+                            <li class="tbd-dropdown-header desktop-only"><p>All Categories<p></li>
+                            <li class="tbd-dropdown-back show-non-desktop"><a>Browse All</a>
+                            <li>
+                            <li>
+                                <ul class="category-dropdown-list">
+                                    <li class="top-category" data-order="10">
+                                        <a href="/category/2/Art-Photography">
+                                            Art &amp; Photography
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/3389/Audio-Books">
+                                            Audio Books
+                                        </a>
+                                    </li>
+                                    <li class="top-category" data-order="10">
+                                        <a href="/category/213/Biography">
+                                            Biography
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/928/Business-Finance-Law">
+                                            Business, Finance &amp; Law
+                                        </a>
+                                    </li>
+                                    <li class="top-category" data-order="10">
+                                        <a href="/category/2455/Childrens-Books">
+                                            Children&#039;s Books
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/1897/Computing">
+                                            Computing
+                                        </a>
+                                    </li>
+                                    <li class="top-category" data-order="10">
+                                        <a href="/category/2942/Crafts-Hobbies">
+                                            Crafts &amp; Hobbies
+                                        </a>
+                                    </li>
+                                    <li class="top-category" data-order="10">
+                                        <a href="/category/2616/Crime-Thriller">
+                                            Crime &amp; Thriller
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/240/Dictionaries-Languages">
+                                            Dictionaries &amp; Languages
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/3245/Entertainment">
+                                            Entertainment
+                                        </a>
+                                    </li>
+                                    <li class="top-category" data-order="10">
+                                        <a href="/category/333/Fiction">
+                                            Fiction
+                                        </a>
+                                    </li>
+                                    <li class="top-category" data-order="10">
+                                        <a href="/category/2858/Food-Drink">
+                                            Food &amp; Drink
+                                        </a>
+                                    </li>
+                                    <li class="top-category" data-order="10">
+                                        <a href="/category/2633/Graphic-Novels-Anime-Manga">
+                                            Graphic Novels, Anime &amp; Manga
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/2770/Health">
+                                            Health
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/2638/History-Archaeology">
+                                            History &amp; Archaeology
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/2892/Home-Garden">
+                                            Home &amp; Garden
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/2978/Humour">
+                                            Humour
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/1279/Medical">
+                                            Medical
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/2819/Mind-Body-Spirit">
+                                            Mind, Body &amp; Spirit
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/2985/Natural-History">
+                                            Natural History
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/2802/Personal-Development">
+                                            Personal Development
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/283/Poetry-Drama">
+                                            Poetry &amp; Drama
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/375/Reference">
+                                            Reference
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/3120/Religion">
+                                            Religion
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/2630/Romance">
+                                            Romance
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/1476/Science-Geography">
+                                            Science &amp; Geography
+                                        </a>
+                                    </li>
+                                    <li class="top-category" data-order="10">
+                                        <a href="/category/2623/Science-Fiction-Fantasy-Horror">
+                                            Science Fiction, Fantasy &amp; Horror
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/632/Society-Social-Sciences">
+                                            Society &amp; Social Sciences
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/3013/Sport">
+                                            Sport
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/3385/Stationery">
+                                            Stationery
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/3328/Teaching-Resources-Education">
+                                            Teaching Resources &amp; Education
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/1708/Technology-Engineering">
+                                            Technology &amp; Engineering
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/3391/Teen-Young-Adult">
+                                            Teen &amp; Young Adult
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/2967/Transport">
+                                            Transport
+                                        </a>
+                                    </li>
+                                    <li data-order="0">
+                                        <a href="/category/3098/Travel-Holiday-Guides">
+                                            Travel &amp; Holiday Guides
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="tbd-dropdown-header desktop-only"><p>Children's books by age range</p></li>
+                            <li>
+                                <ul class="age-range-dropdown-list">
+                                    <li>
+                                        <a href="/category/3392/Books-for-Ages-0-2">
+                                            Ages 0-2
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/category/3393/Books-for-Ages-3-5">
+                                            Ages 3-5
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/category/3394/Books-for-Ages-6-8">
+                                            Ages 6-8
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/category/3395/Books-for-Ages-9-11">
+                                            Ages 9-11
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/category/3391/Teen-Young-Adult">
+                                            Teen &amp; Young Adult
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="mob-nav-shop"><a href="http://localhost:65014/Home/HomePageContent">Home</a></li>
+                    <li class="mob-nav-shop"><a href="http://localhost:65014/Home/bestSeller">BestSellers</a></li>
+                    <li class="mob-nav-shop"><a href="http://localhost:65014/Home/CommingSoon">Coming Soon</a></li>
+                    <li class="mob-nav-shop"><a href="http://localhost:65014/Home/HighLights">Highlights</a></li>
+                </ul>
+                <div class="right-section">
+                    <div class="currency-selector-wrap mobile-nav-content" data-order="4">
+                        <form method="post" action="">
+                            <div class="currency-selector mob-nav-account" title="US Dollar">
+                                <select name="selectCurrency" id="selectCurrency">
+                                    <option value="AUD">
+                                        $&nbsp;Australian Dollar
+                                    </option>
+                                    <option value="EUR">
+                                        €&nbsp;Euro
+                                    </option>
+                                    <option value="USD" selected='selected'>
+                                        $&nbsp;US Dollar
+                                    </option>
+                                    <option value="GBP">
+                                        £&nbsp;British Pound
+                                    </option>
+                                    <option value="NZD">
+                                        $&nbsp;New Zealand Dollar
+                                    </option>
+                                    <option value="SGD">
+                                        $&nbsp;Singapore Dollar
+                                    </option>
+                                    <option value="HKD">
+                                        $&nbsp;Hong Kong Dollar
+                                    </option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="basket-wrap">
+                        <span class="total">US$ @Total</span>
+                        <a rel="nofollow" href="/ShoppingCart/List" class="basket-btn">
+                            <span class="item-count">@Amount</span>
+                            <span class="item-text">items </span>
+                            <i class="icon-basket"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="content-wrap">
+            <div>@RenderBody()</div>
+        </div>
+
+        <div class="footer-social-wrap">
+            <h4>Follow us</h4>
+            <ul class="social-btns">
+                <li><a rel="nofollow" target="_blank"><i class="icon-fb"></i></a></li>
+                <li><a rel="nofollow" target="_blank"><i class="icon-tw"></i></a></li>
+                <li><a rel="nofollow" target="_blank"><i class="icon-gp"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-wrap">
+            <footer class="footer">
+                <div class="footer-left-content hide-on-mobile">
+                    <section class="footer-links">
+                        <h4>Explore</h4>
+                        <ul>
+                            <li><a rel="nofollow">About us</a></li>
+                            <li><a >Sitemap</a></li>
+                            <li><a >Bookmarks</a></li>
+                            <li><a>Sign in/Join</a></li>
+                        </ul>
+                    </section>
+                    <section class="footer-links">
+                        <h4>How can we help?</h4>
+                        <ul>
+                            <li><a rel="nofollow">Help</a></li>
+                            <li><a >Contact us</a></li>
+                            <li><a rel="nofollow" >Where's my stuff?</a></li>
+                            <li><a rel="nofollow" >Where do you deliver?</a></li>
+                        </ul>
+                    </section>
+                    <section class="footer-links">
+                        <h4>Join us</h4>
+                        <ul>
+                            <li><a  target="_blank">Affiliates</a></li>
+                            <li><a >Jobs</a></li>
+                        </ul>
+                    </section>
+                    <section class="footer-links">
+                        <h4>Important stuff</h4>
+                        <ul>
+                            <li><a rel="nofollow">Cookies</a></li>
+                            <li><a rel="nofollow" >Privacy policy</a></li>
+                            <li><a rel="nofollow" >Terms &amp; Conditions</a></li>
+                            <li><a rel="nofollow">Secure shopping</a></li>
+                            <li><a rel="nofollow">Accessibility</a></li>
+                        </ul>
+                    </section>
+                </div>
+
+                <div class="footer-left-content show-only-mobile">
+                    <div class="footer-links">
+                        <ul>
+                            <li><a rel="nofollow" href="/account/login/to/account">Sign in/Join</a></li>
+                            <li><a >Order Status</a></li>
+                            <li><a >Contact us</a></li>
+                            <li><a >Help</a></li>
+                            <li><a rel="nofollow">About us</a></li>
+                            <li><a rel="nofollow" >Terms &amp; Conditions</a></li>
+                            <li><a rel="nofollow" >Privacy policy</a></li>
+                            <li><a rel="nofollow" >Cookies</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-right-content">
+                    <div class="payment-methods">
+                        <p>We accept these payment methods</p>
+                        <img src="https://d3ogvdx946i4sr.cloudfront.net/assets/v2.4.36/img/payment-options.png" alt="Payment methods"
+                              class="method-img">
+                    </div>
+                    <div class="small-print">
+                        <i class="icon-bd"></i>
+                        <div id="copyright" class="text" 
+                             title="BdiMetadata{webserver='brussels', requestTime='2.33 sec', userSessionCurrencyCode='USD', userSessionCountry='VN', userIp='1.53.23.238', cacheParams=BdiCacheMetadata{cacheCountry='VN', cacheCurrency='USD', controllerName='page', actionName='content', moduleName='default', serverScheme='https', cacheNamespace='customPage', cacheKey='content', generatedOn=Thu May 18 11:24:20 UTC 2017, cacheEnabled=true}}">
+                            © 2017 The Book Depository Ltd.<br>
+                            UK. Registered company number: 5124926
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+    @*
+        <script type="text/javascript">
+        window.addEventListener("load", function() {
+            var jsElm = document.createElement("script");
+            jsElm.src = "https://d3ogvdx946i4sr.cloudfront.net/assets/v2.4.36/js/app.js";
+            document.body.appendChild(jsElm);
+        });
+    </script>*@
+
+    <script async src="https://d3ogvdx946i4sr.cloudfront.net/assets/v2.4.36/js/firstload.js"></script>
+    <script type="text/javascript">document.body.className += " js";</script>
+    </div>
+    @*<script type="text/javascript">
+        window.google_remarketing_data = {
+            google_custom_params: {
+                prodid: '',
+                pagetype: 'homepage',
+                value: '',
+                pname: '',
+                pcat: ''
+            },
+            google_conversion_id: 997479781,
+            google_conversion_label: "jTANCIOb5wQQ5arR2wM"
+        };
+    </script>*@
+    @*<noscript>
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/997479781/?value=0&label=jTANCIOb5wQQ5arR2wM&guid=ON&script=0" />
+        </div>
+    </noscript>
+    <script type="text/javascript">
+        var ggoals_account ='bookdepository';
+    </script>
+    <script async type="text/javascript" src="//conversions.genieventures.co.uk/gt.js"></script>*@
+    <!-- The first Confirmation flag is only present on order confirmation page -->
+    <div id='be' style="display:none;visibility:hidden;">
+        <form name='ue_backdetect' action="get"><input type="hidden" name='ue_back' value='1' /></form>
+
+
+        <script type="text/javascript">
+            var ue_mbl=ue_csm.ue.exec(function(e,a){function k(f){b=f||{};a.AMZNPerformance=b;b.transition=b.transition||{};b.timing=b.timing||{};e.ue.exec(l,"csm-android-check")()&&b.tags instanceof Array&&(f=-1!=b.tags.indexOf("usesAppStartTime")||b.transition.type?!b.transition.type&&-1<b.tags.indexOf("usesAppStartTime")?"warm-start":void 0:"view-transition",f&&(b.transition.type=f));"reload"===d._nt&&e.ue_orct||"intrapage-transition"===d._nt?a.performance&&performance.timing&&performance.timing.navigationStart?
+            b.timing.transitionStart=a.performance.timing.navigationStart:delete b.timing.transitionStart:"undefined"===typeof d._nt&&a.performance&&performance.timing&&performance.timing.navigationStart&&a.history&&"function"===typeof a.History&&"object"===typeof a.history&&history.length&&1!=history.length&&(b.timing.transitionStart=a.performance.timing.navigationStart);f=b.transition;var c;c=d._nt?d._nt:void 0;f.subType=c;a.ue&&a.ue.tag&&a.ue.tag("has-AMZNPerformance");d.isl&&a.uex&&uex("at","csm-timing");
+                m()}function n(b){a.ue&&a.ue.count&&a.ue.count("csm-cordova-plugin-failed",1)}function l(){return a.webclient&&"function"===typeof a.webclient.getRealClickTime?a.cordova&&a.cordova.platformId&&"ios"==a.cordova.platformId?!1:!0:!1}function m(){try{P.register("AMZNPerformance",function(){return b})}catch(a){}}function g(){if(!b)return"";ue_mbl.cnt=null;var a=b.transition,c;c=b.timing.transitionStart;c="undefined"!==typeof c&&"undefined"!==typeof h?c-h:void 0;a=["mts",c,"mtt",a.type,"mtst",a.subType,
+                "mtlt",a.launchType];c="";for(var d=0;d<a.length;d+=2){var e=a[d],g=a[d+1];"undefined"!==typeof g&&(c+="&"+e+"="+g)}return c}function p(a,c){b&&(h=c,b.timing.transitionStart=a,b.transition.type="view-transition",b.transition.subType="ajax-transition",b.transition.launchType="normal",ue_mbl.cnt=g)}var d=e.ue||{},h=e.ue_t0,b;if(a.P&&a.P.when&&a.P.register)return a.P.when("CSMPlugin").execute(function(a){a.buildAMZNPerformance&&a.buildAMZNPerformance({successCallback:k,failCallback:n})}),{cnt:g,ajax:p}},
+            "mobile-timing")(ue_csm,window);
+
+            (function(d){d._uess=function(){var a="";screen&&screen.width&&screen.height&&(a+="&sw="+screen.width+"&sh="+screen.height);var b=function(a){var b=document.documentElement["client"+a];return"CSS1Compat"===document.compatMode&&b||document.body["client"+a]||b},c=b("Width"),b=b("Height");c&&b&&(a+="&vw="+c+"&vh="+b);return a}})(ue_csm);
+
+            (function(a){var b=document.ue_backdetect;b&&b.ue_back&&a.ue&&(a.ue.bfini=b.ue_back.value);a.uet&&a.uet("be");a.onLdEnd&&(window.addEventListener?window.addEventListener("load",a.onLdEnd,!1):window.attachEvent&&window.attachEvent("onload",a.onLdEnd));a.ueh&&a.ueh(0,window,"load",a.onLd,1);a.ue&&a.ue.tag&&(a.ue_furl&&a.ue_furl.split?(b=a.ue_furl.split("."))&&b[0]&&a.ue.tag(b[0]):a.ue.tag("nofls"))})(ue_csm);
+            (function(g,h){function d(a,d){var b={};if(!e||!f)try{var c=h.sessionStorage;c?a&&("undefined"!==typeof d?c.setItem(a,d):b.val=c.getItem(a)):f=1}catch(g){e=1}e&&(b.e=1);return b}var b=g.ue||{},a="",f,e,c,a=d("csmtid");f?a="NA":a.e?a="ET":(a=a.val,a||(a=b.oid||"NI",d("csmtid",a)),c=d(b.oid),c.e||(c.val=c.val||0,d(b.oid,c.val+1)),b.ssw=d);b.tabid=a})(ue_csm,window);
+
+
+            (function(b,c){var a=c.images;a&&a.length&&b.ue.count("totalImages",a.length)})(ue_csm,document);
+
+
+            ue_csm.ue._rtn = 1;
+            (function(e,f){function h(a){a=a.split("?")[0]||a;a=a.replace("http://","").replace("https://","").replace("resource://","").replace("res://","").replace("undefined://","").replace("chrome://","").replace(/\*/g,"").replace(/!/g,"").replace(/~/g,"");var b=a.split("/");a=a.substr(a.lastIndexOf("/")+1);b.splice(-1);b=b.map(function(a){c[a]||(c[a]=(k++).toString(36));return c[a]});b.push(a);return b.join("!")}function l(){return f.getEntriesByType("resource").filter(function(a){return d._rre(a)<d._ld}).sort(function(a,
+            b){return a.responseEnd-b.responseEnd}).splice(0,m).map(function(a){var b=[],c;for(c in a)g[c]&&a[c]&&b.push(g[c]+Math.max(a[c]|0,-1).toString(36));b.push("i"+a.initiatorType);(1==d._rtn&&d._afjs>n||2==d._rtn)&&b.push("n"+h(a.name));return b.join("_")}).join("*")}function p(){var a="pm",b;for(b in c)c.hasOwnProperty(b)&&(a+="*"+c[b]+"_"+b);return a}function q(){d.log({k:"rtiming",value:l()+"~"+p()},"csm")}if(f&&f.getEntriesByType&&Array.prototype.map&&Array.prototype.filter&&e.ue&&e.ue.log){var g=
+            {connectStart:"c",connectEnd:"C",domainLookupStart:"d",domainLookupEnd:"D",duration:"z",fetchStart:"f",redirectStart:"r",redirectEnd:"R",requestStart:"q",responseStart:"s",responseEnd:"S",startTime:"a"},d=e.ue,c={},k=1,n=20,m=200;d&&d._rre&&(d._art=function(){d._ld&&window.setTimeout(q,0)})}})(ue_csm||{},window.performance);
+
+
+            (function(c,d){var b=c.ue,a=d.navigator;b&&b.tag&&a&&(a=a.connection||a.mozConnection||a.webkitConnection)&&a.type&&b.tag("netInfo:"+a.type)})(ue_csm,window);
+
+
+            (function(c,d){function h(a,b){for(var c=[],d=0;d<a.length;d++){var e=a[d],f=b.encode(e);if(e[k]){var g=b.metaSep,e=e[k],l=b.metaPairSep,h=[],
+                m=void 0;for(m in e)e.hasOwnProperty(m)&&h.push(m+"="+e[m]);e=h.join(l);f+=g+e}c.push(f)}return c.join(b.resourceSep)}
+                function s(a){var b=a[k]=a[k]||{};b[t]||(b[t]=c.ue_mid);b[u]||(b[u]=c.ue_sid);b[f]||(b[f]=c.ue_id);b.csm=1;a="//"+c.ue_furl+"/1/"+a[v]+"/1/OP/"+a[w]+"/"+a[x]+"/"+h([a],y);if(n)try{n.call(d[p],a)}catch(g){c.ue.sbf=1,(new Image).src=a}else(new Image).src=
+            a}function q(){g&&g.isStub&&g.replay(function(a,b,c){a=a[0];b=a[k]=a[k]||{};b[f]=b[f]||c;s(a)});l.impression=s;g=null}if(!(1<c.ueinit)){var k="metadata",x="impressionType",v="foresterChannel",w="programGroup",t="marketplaceId",u="session",f="requestId",p="navigator",l=c.ue||{},n=d[p]&&d[p].sendBeacon,r=function(a,b,c,d){return{encode:d,resourceSep:a,metaSep:b,metaPairSep:c}},y=r("","?","&",function(a){return h(a.impressionData,z)}),z=r("/",":",",",function(a){return a.featureName+":"+h(a.resources,
+            A)}),A=r(",","","|",function(a){return a.id}),g=l.impression;n?q():(l.attach("load",q),l.attach("beforeunload",q));d.P&&d.P.register&&d.P.register("impression-client",function(){})}})(ue_csm,window);
+
+
+            if (window.ue_wurl) {
+                (function(b,a,c){function d(){c.glog.flush({mid:a.ue_mid,sid:a.ue_sid,mkt:a.ue_mkt,sn:a.ue_sn,furl:"https://"+a.ue_furl+"/1/batch/1/OE/",async:!0})}if(b.URL&&b.Worker){b=URL.createObjectURL(new Blob(["(",function(a){importScripts(a)}.toString(),")('",a.ue_wurl,"')"],{type:"application/javascript"}));var f=new Worker(b),e=!1;c.glog=function(a,b,d){f.postMessage({m:"log",l:a,n:b,o:d});e||c.log();e=!0};c.glog.flush=function(a){f.postMessage({m:"flush",o:a});e=!1};c.onunload(d);c.onflush(d)}})(window,
+                ue_csm,ue);
+
+            }
+
+            var ue_pty = "home";
+
+            var ue_spty = "none";
+
+
+        </script>
+
+    </div>
+
+    @*<noscript>
+        <img height="1" width="1" style='display:none;visibility:hidden;' src='//fls-eu.amazon.co.uk/1/batch/1/OP/AYXWW5ND5JOM8:254-6631220-7292632:AXM2ZSJYZ5QE01T9NK10$uedata=s:%2Fcsmpb%3Fnoscript%26id%3DAXM2ZSJYZ5QE01T9NK10:0' alt="" />
+    </noscript>*@
+</body>
+</html>

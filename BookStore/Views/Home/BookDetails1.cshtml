@@ -1,0 +1,222 @@
+﻿
+@{
+    ViewBag.Title = "BookDetails1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using BookStore.Models.Entities;
+@model Sach
+
+
+
+@using BookStore.Models.Bean;
+@{
+    int Amount = 0;
+    double Total = 0;
+    Cart cart = (Cart)Session["cart"];
+    if (cart != null)
+    {
+        Amount = cart.GetAmountInCart();
+        Total = cart.getTotal();
+    }
+}
+ <div class="item-wrap" itemscope itemtype="http://schema.org/Book">
+    <div class="item-block">
+        <meta itemprop="url" content="/Mans-Search-for-Meaning-Viktor-E-Frankl/9780807014295" />
+        <meta itemprop="author" content="Viktor E. Frankl" />
+        <meta itemprop="publisher" content="Beacon Press" />
+        <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            <meta itemprop="name" content="Man&#039;s Search for Meaning" />
+            <meta itemprop="availability" content="http://schema.org/InStock" />
+            <meta itemprop="itemCondition" content="http://schema.org/NewCondition" />
+            @*<meta itemprop="image" content="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/large/9780/8070/9780807014295.jpg" />*@
+        </span>
+
+        <div class="item-img">
+            <div class="item-img-content">
+                <img src="@Url.Content("~/Content/images/" + Model.anhbia)" alt="Man&#039;s Search for Meaning" class="book-img" itemprop="image" />
+                @*<div class="savings-splat">22%<br>off</div>*@
+            </div>
+            <div class="copy-content visible-md" data-target=".social-wrap"></div>
+        </div>
+        <div class="item-info">
+            <h1 itemprop="name">@Model.ten</h1>
+
+            <div class="rating-wrap hidden-md" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                <a href="#rating-distribution">
+                    <div class="stars">
+                        <span class="star full-star"></span>
+                        <span class="star full-star"></span>
+                        <span class="star full-star"></span>
+                        <span class="star full-star"></span>
+                        <span class="star half-star"></span>
+                    </div>
+                </a>
+                <span itemprop="ratingValue">
+                    4.32
+                </span>
+                <span class="rating-count">
+                    (178,461 ratings by Goodreads)
+                </span>
+                <meta itemprop="ratingCount" content="178461" />
+            </div>
+            <ul class="meta-info hidden-md">
+                @*<li>Paperback</li>
+                <li>
+                    <a >Beacon Press</a>
+                </li>*@
+                <li>
+                    <a  itemprop="inLanguage">Tiếng Việt</a>
+                </li>
+            </ul>
+
+            <div class="author-info hidden-md">
+                Tên tác giả &nbsp;
+                <a  itemprop="author">@Model.TacGia.ten</a>
+            </div>
+            <ul class="social-wrap hidden-xs hidden-sm hidden-md">
+                <li class='label'>Share</li>
+                <li><a target="_blank"><i class="icon-em"></i></a></li>
+
+                <li><a target="_blank"><i class="icon-fb"></i></a></li>
+
+                <li><a target="_blank"><i class="icon-tw"></i></a></li>
+
+                <li><a  target="_blank"><i class="icon-pi"></i></a></li>
+            </ul>
+        </div>
+        <div class="item-tools">
+            <div class="checkout-tools">
+                <div class="copy-content visible-md" data-target=".item-block .rating-wrap"></div>
+                <div class="price-info-wrap">
+                    <div class="item-info-wrap">
+                        <div class="copy-content visible-md" data-target=".meta-info"></div>
+                        <div class="copy-content visible-md" data-target=".author-info"></div>
+                        <div class="price item-price-wrap hidden-xs hidden-sm">
+                           <span class="sale-price"> @Model.gia VNĐ</span>
+                            @*<span class="list-price"></span>*@
+                            @*<span class="price-save red-text">You save US$2.25</span>*@
+                        </div>
+                        <div class="copy-content visible-md visible-xs visible-sm" data-target=".formats-wrap"></div>
+                        <div class="free-delivery-text">
+                            <i class="icon-rocket"></i>
+                            <p>Miễn phí cước vận chuyển</p>
+                        </div>
+                        @*<div class="availability-text">
+                            <i class="icon-check"></i>
+                            <p>
+                                @*<span>
+                                    Available.
+                                    Dispatched from the UK in 3 business days
+                                </span>
+                                <br>
+                                @*<a target="_blank" href="/help/topic/HelpId/2/When-will-my-order-arrive">When will my order arrive?</a>
+                            </p>
+                        </div>*@
+                    </div>
+                </div>
+                <div class="btn-wrap">
+                    <div class="copy-content visible-xs visible-sm" data-target=".item-price-wrap"></div>
+                    <a  href="/ShoppingCart/Add/@Model.ma" class="btn btn-primary add-to-basket" 
+                       data-isbn="9780807014295" data-price="7.74" data-currency="USD" data-show-related="true">
+                    Thêm vào giỏ hàng</a>
+                 
+
+                    <div class="copy-content visible-xs visible-sm" data-target=".social-wrap"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="item-description">
+        <h2>Description</h2>
+        <div class="item-excerpt trunc" itemprop="description" data-height="200">
+            @Model.mota<a class='read-more'>Hiển thị thêm</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+        if (ue) {
+            uet('af');
+        }
+    </script><div class="biblio-wrap">
+
+        <div class="biblio-info-wrap">
+            <h2 class='biblio-title'>Chi tiết sản phẩm</h2>
+            <ul class="biblio-info">
+
+                <li>
+                    <label>Format</label>
+                    <span>
+                        Paperback
+                        | <span itemprop="numberOfPages">165 pages</span>
+                    </span>
+                </li>
+                <li>
+                    <label>Dimensions</label>
+                    <span>
+                        104
+                        x 168
+                        x 14mm
+
+                        | 100g
+                    </span>
+                </li>
+                <li>
+                    <label>Ngày xuất bản</label>
+                    <span itemprop="datePublished">14/6/2006</span>
+                </li>
+                <li>
+                    <label>Nhà xuất bản </label>
+                    <span>
+                        <a href="/publishers/Beacon-Press" itemprop="publisher">
+                            NXB Hà Nội
+                        </a>
+                    </span>
+                </li>
+                <li>
+                    <label>Địa chỉ</label>
+                    <span>
+                        Hà Nội, Việt Nam
+                    </span>
+                </li>
+                <li>
+                    <label>Ngôn ngữ</label>
+                    <span>
+                        Tiếng Việt
+                    </span>
+                </li>
+               
+            </ul>
+        </div>
+    </div>
+</div>
+
+<ol class="breadcrumb category-footer">
+    <li class="title">Các loại sách:</li>
+    <li>
+        <a>Thơ</a>
+    </li>
+    <li><a>Truyện thiếu nhi</a>
+    </li>
+    <li>
+        <a>Sách tâm lý kỹ năng</a>
+    </li>
+    <li>
+        <a>Truyện ngắn</a>
+    </li>
+    <li>
+        <a>Truyện dài</a>
+    </li>
+    <li>
+        <a>Khoa học vũ trụ</a>
+    </li>
+    <li class='active'>
+        <a>Văn Hóa</a>
+    </li>
+    <li class='active'>
+        <a>Tiểu thuyết</a>
+    </li>
+</ol>
+
+

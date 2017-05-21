@@ -1,0 +1,212 @@
+﻿@model BookStore.Models.DataToObject.HoaDonDTO
+
+@using BookStore.Models.Bean;
+
+@{
+    int Amount = 0;
+    double Total = 0;
+    List<ItemCart> _listItemCart = new List<ItemCart>();
+    Cart cart = (Cart)Session["cart"];
+    if (cart != null)
+    {
+        Amount = cart.GetAmountInCart();
+        Total = cart.getTotal();
+        _listItemCart = cart.getListItemCart();
+        Session["hoadon"] = Model;
+    }
+}
+
+<div class="content-wrap">
+    <div class="main-content checkout-page payment-step">
+        <ol class="steps">
+            <li class="complete">Chi tiết thanh toán</li>
+            <li>Thanh toán</li>
+        </ol>
+        <div class="block-wrap">
+            <div class="show-only-mobile">
+                <div class="toggle-component">
+                    <div class="mini-basket">
+
+                        <div class="heading">
+                            <h2>Giỏ hàng của tôi</h2>
+                            <i class="icon-basket"></i>
+                            <span class="item-count">@Amount items</span> @*số lượng sách đã mua*@
+                            <span class="item-total">@Total VNĐ</span> @*Tổng số tiền*@
+                        </div>
+
+                        <div class="wrapper">
+                            @foreach (var item in _listItemCart)
+                            {
+                            <dl class="item-row">
+                                <dt>
+                                    @item.Name <span class="format" /> @*@item.</span>*@
+                                    <br>
+                                    <span class="bk-qty">x @item.Amount</span>
+                                </dt>
+                                <dd class="item-price text-right"> @item.GetMoney()</dd>
+                            </dl>
+                            @*<dl class="item-row">
+
+                                    <dt>
+                                        When Breath Becomes Air<span class="format"> (Paperback, English)</span>
+                                        <br>
+                                        <span class="bk-qty">x3</span>
+                                    </dt>
+                                    <dd class="item-price text-right">US$29.16</dd>
+                                </dl>*@
+                            }
+                            <dl>
+                                <dt class="sub-total"><strong>Tổng tiền: </strong></dt>
+                                <dd class="text-right sub-total"> @Total</dd>
+                            </dl>
+                            <dl>
+                                <dt><strong>Vận chuyển</strong></dt>
+                                <dd class="text-right"><strong>FREE</strong></dd>
+                            </dl>
+
+                            <dl>
+                                <dt class="tax"><strong>VAT</strong></dt>
+                                <dd class="text-right total-tax">0 VNĐ</dd>
+                            </dl>
+
+
+                            <dl>
+                                <dt class="total"><strong>TỔNG THANH TOÁN</strong></dt>
+                                <dd class="text-right total-price"> (@Total)</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<p class="message">In placing your order, you are confirming that you have read and agree to our
+                <a href="/help/topic/HelpId/19/Terms-and-Conditions#helpContent" class="blank">Terms and Conditions</a> of sale, our
+                <a href="/help/topic/HelpId/20/Our-privacy-policy#helpContent" class="blank">Privacy Policy</a> and our
+                 <a href="/help/topic/HelpId/53/How-we-use-cookies#helpContent" class="blank">Cookies Policy</a>.</p>*@
+
+            <div class="login-wrap section-wrap block" data-counter="showLoginAtCheckout">
+                <form @*class="form-horizontal"*@ action="#" method="post">
+                    @using (Html.BeginForm())
+                    {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <h3>Hóa đơn</h3>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MaHoaDon, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.MaHoaDon, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="number" readonly="readonly" name="mahoadon" class="form-control"/>
+                                @Html.ValidationMessageFor(model => model.MaHoaDon, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="email" name="email" class="form-control" />
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.KhachHangTen, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.KhachHangTen, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="text"  name="khachhangten" class="form-control" />
+                                @Html.ValidationMessageFor(model => model.KhachHangTen, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.KhachHangSDT, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.KhachHangSDT, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="number"  name="khachhangsdt" class="form-control" />
+                                @Html.ValidationMessageFor(model => model.KhachHangSDT, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DiaChiGiaoHang, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.DiaChiGiaoHang, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="text"name="diachigiaohang" class="form-control" />
+                                @Html.ValidationMessageFor(model => model.DiaChiGiaoHang, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NgayGiaoHang, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.NgayGiaoHang, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="date" name="ngaygiaohang" class="form-control" />
+                                @Html.ValidationMessageFor(model => model.NgayGiaoHang, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                    }
+
+                    <div>
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="sidebar right">
+        <div class="mini-basket">
+
+            <div class="heading">
+                <h2>Giỏ hàng của tôi</h2>
+                <i class="icon-basket"></i>
+                <span class="item-count">@Amount items</span>
+                <span class="item-total">@Total VNĐ</span>
+            </div>
+
+            <div class="wrapper">
+                @foreach (var item in _listItemCart)
+            {
+            <dl class="item-row">
+                <dt>
+                    @item.Name@*<span class="format"> (Hardback, English)</span>*@
+                    <br>
+                    <span class="bk-qty">x @item.Amount</span>
+                </dt>
+                <dd class="item-price text-right">@item.GetMoney() VNĐ</dd>
+            </dl>
+            }
+                <dl>
+                    <dt class="sub-total"><strong>Tổng</strong></dt>
+                    <dd class="text-right sub-total">@Total</dd>
+                </dl>
+                <dl>
+                    <dt><strong>Vận chuyển</strong></dt>
+                    <dd class="text-right"><strong>FREE</strong></dd>
+                </dl>
+
+                <dl>
+                    <dt class="tax"><strong>VAT</strong></dt>
+                    <dd class="text-right total-tax">0 VNĐ</dd>
+                </dl>
+
+                <dl>
+                    <dt class="total"><strong>Thanh toán: </strong></dt>
+                    <dd class="text-right total-price">@Total</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+</div>
+

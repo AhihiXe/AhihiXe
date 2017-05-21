@@ -1,0 +1,61 @@
+﻿@using BookStore.Models.Entities;
+
+@using BookStore.Models.Bean;
+@model List<Sach>
+
+@foreach (var item in Model)
+{
+    <div class="book-item">
+        @*itemscope="" itemtype="http://schema.org/Book">*@
+        <div class="item-img">
+            <a href="@Url.Action("BookDetails1", "Home", new { @ID = item.ma })" itemprop="url">
+                <img src="@Url.Content("~/Content/images/" + @item.anhbia)" alt="Good Night Stories for Rebel Girls">
+            </a>
+        </div>
+        <meta itemprop="isbn" content="9780141986005">
+        <meta itemprop="name" content="Good Night Stories for Rebel Girls">
+
+        <meta itemprop="contributor" content="Elena Favilli">
+        <meta itemprop="contributor" content="Francesca Cavallo">
+        <div class="item-info">
+            <h3 class="title">
+                <a href="@Url.Action("BookDetails1", "Home", new { @ID = item.ma })"> @item.ten<br></a>
+            </h3>
+            <div class="rating-wrap">
+                <div class="price-wrap">
+                    <p class="price">
+                        @String.Format("{0:0,0}", @item.gia) VND
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-actions">
+            <div class="btn-wrap">
+                <a rel="nofollow" class="btn btn-sm btn-primary add-to-basket" data-ref="carousel"
+                   data-isbn="9780141986005" data-currency="USD" data-price="23.41" data-show-related="true"
+                   href="/ShoppingCart/Add/@item.ma">
+                    Thêm vào giỏ hàng
+                </a>
+                @*@*<a rel="nofollow" class="btn btn-sm btn-primary add-to-basket" data-ref="carousel"
+                        data-isbn="9780141986005" data-currency="USD" data-price="23.41" data-show-related="true">
+                    <button href="/ShoppingCart/Add/@item.ma" style="">
+                        <a href="/ShoppingCart/Add/@item.ma" rel="nofollow" class="btn btn-sm btn-primary add-to-basket" data-ref="carousel"
+                        data-isbn="9780141986005" data-currency="USD" data-price="23.41" data-show-related="true">Thêm vào giỏ hàng</a>
+                    </button>*@
+
+            </div>
+        </div>
+    </div>
+}
+
+@{
+    int Amount = 0;
+    double Total = 0;
+    Cart cart = (Cart)Session["cart"];
+    if (cart != null)
+    {
+        Amount = cart.GetAmountInCart();
+        Total = cart.getTotal();
+    }
+}

@@ -1,0 +1,80 @@
+﻿
+@using BookStore.Models.Bean;
+@model IEnumerable<BookStore.Models.Bean.ItemCart>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+<table border="1">
+    <tr>
+        <th style="text-align: center; ">STT</th>
+        <th style="text-align: center; ">Mã  </th>
+        <th style="text-align: center; ">Tên</th>
+        <th style="text-align: center; ">Giá</th>
+        <th style="text-align: center; ">Số lượng</th>
+        <th style="text-align: center; ">Thành tiền</th>
+        <th style="text-align: center; ">Hành động</th>
+    </tr>
+    @{
+        int totalAmount = 0;
+        double totalMoney = 0;
+        foreach (var item in Model)
+        {
+            totalAmount += item.Amount;
+            totalMoney += item.GetMoney();
+        }
+    }
+    @{
+        int i = 1;
+    }
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <th style="text-align: center; ">@(i++)</th>
+            <th style="text-align: center; ">@item.ID</th>
+            <th>@item.Name</th>
+            <th style="text-align: center; ">@item.Price</th>
+            <th style="text-align: center; ">@item.Amount</th>
+            <th style="text-align: right; ">@item.GetMoney()</th>
+            <th style="text-align: center; "><a href="/ShoppingCart/Delete/@item.ID">Xóa</a></th>
+            @*@i++;*@
+        </tr>
+
+    }
+    @{
+        String taikhoan = (String)Session["taikhoan"];
+        //if ((String)Session["taikhoan"] != null) taikhoan = (String)Session["taikhoan"];
+    }
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th style="text-align: center; color:orangered;">Tổng</th>
+        <th style="text-align: center; color:orangered;">@totalAmount</th>
+        <th style="text-align: center; color:orangered; ">@totalMoney VND</th>
+        <th style="text-align: center;"> <a href="@Url.Action("Buy", "ShoppingCart", new { @taikhoan= taikhoan})">Đặt Hàng</a></th>
+    </tr>
+</table>
+
+
+
+

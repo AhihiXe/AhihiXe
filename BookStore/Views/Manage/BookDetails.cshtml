@@ -1,0 +1,96 @@
+﻿@model BookStore.Models.Entities.Sach
+
+@{
+    Layout = "~/Views/Shared/_Layout_Manager.cshtml";
+}
+
+<div>
+    <h4>Chi tiết thông tin sách: @Model.ten</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ten)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.anhbia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.anhbia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngaycapnhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngaycapnhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.soluongton)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soluongton)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nhaxuatbanma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nhaxuatbanma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.chudema)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChuDe.ten)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tacgiama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TacGia.ten)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "BookUpdate", new { @ID = Model.ma }) |
+    @Html.ActionLink("Trở lại danh sách", "BookManager")
+</p>

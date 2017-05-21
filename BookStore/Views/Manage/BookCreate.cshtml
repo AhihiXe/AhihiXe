@@ -1,0 +1,133 @@
+﻿
+
+@model BookStore.Models.Entities.Sach
+@{
+    Layout = "~/Views/Shared/_Layout_Manager.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="progressbar-heading grids-heading">
+        <h2>Nhập sách</h2>
+    </div>
+    <div class="panel panel-widget forms-panel">
+        <div class="forms">
+            <div class="form-grids widget-shadow" data-example-id="basic-forms">
+                <div class="form-title">
+                    <h4>Thêm sách mới</h4>
+                </div>
+                <div class="form-body">
+                    <form action="#" method="post">
+                        @*<div class="form-group">
+                                @Html.LabelFor(model => model.ma, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                @Html.EditorFor(model => model.ma, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ma, "", new { @class = "text-danger" })
+                            </div>*@
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ten, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                            @Html.EditorFor(model => model.ten, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ten, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.gia, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                            @*@Html.EditorFor(model => model.gia, new { htmlAttributes = new { @class = "form-control" } })*@
+                            <input type="number" class="form-control" name="gia" />
+                            @Html.ValidationMessageFor(model => model.gia, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.mota, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                            @Html.EditorFor(model => model.mota, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.mota, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.anhbia, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <input type="file" id="exampleInputFile" class="col-sm-5">
+                            <input type="text" name="anhbia" placeholder="Ảnh bìa" class="col-sm-5" style="float:left" />
+                            @Html.ValidationMessageFor(model => model.anhbia, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ngaycapnhat, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                            @*@Html.EditorFor(model => model.ngaycapnhat, new { htmlAttributes = new { @class = "form-control" } })*@
+                            <input type="date" name="ngaycapnhat" />
+                            @Html.ValidationMessageFor(model => model.ngaycapnhat, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.soluongton, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                            @*@Html.EditorFor(model => model.soluongton, new { htmlAttributes = new { @class = "form-control" } })*@
+                            <input type="number" class="form-control" name="soluongton" />
+                            @Html.ValidationMessageFor(model => model.soluongton, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.nhaxuatbanma, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                            @Html.EditorFor(model => model.nhaxuatbanma, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.nhaxuatbanma, "", new { @class = "text-danger" })
+                        </div>
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.chudema, htmlAttributes: new { @class = "control-label col-md-2" })
+                            @*@Html.EditorFor(model => model.chudema, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @*<div class="col-sm-8">*@
+                            <select multiple="" class="form-control1">
+                                @Html.Action("getList_Chude", "Manage")
+                                @*<option>Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                    <option>Option 4</option>
+                                    <option>Option 5</option>*@
+
+                            </select>
+
+                            @Html.ValidationMessageFor(model => model.chudema, "", new { @class = "text-danger" })
+                        </div>
+                        @*<div class="form-group">
+                                @Html.LabelFor(model => model.moi, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                @Html.EditorFor(model => model.moi, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.moi, "", new { @class = "text-danger" })
+
+                            </div>*@
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.tacgiama, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                            @Html.EditorFor(model => model.tacgiama, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.tacgiama, "", new { @class = "text-danger" })
+
+                        </div>
+                        <button type="submit" class="btn btn-default w3ls-button" onclick="btn_book_create()">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a href="http://localhost:65014/Manage/BookManager" itemprop="url">Back to list</a>
+    </div>
+    <script type="text/javascript">
+        function brn_book_create() {
+
+        }
+    </script>
+}

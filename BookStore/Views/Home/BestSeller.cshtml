@@ -1,0 +1,298 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="ribbon-wrap ">
+    <div class="free-delivery-ribbon ">
+        <div class="free-delivery-ribbon-item">
+            <a rel="nofollow" href="/help/topic/HelpId/3/Which-countries-do-you-deliver-to" title="Free delivery worldwide">
+                <i class="icon-rocket"></i>
+                Miễn phí cước vận chuyển
+            </a>
+        </div>
+    </div>
+</div>
+<div class="content-wrap">
+
+    <div class="sidebar">
+        <div class="sidebar-section search-filter">
+            <h2>Tìm kiếm</h2>
+            <div class="sidebar-section-content search-filter-sidebar">
+                <form class="filter-menu" action="" method="get">
+                    <div class="form-group">
+                        <label for="searchTerm">Từ khóa</label>
+                        <input type="text" class="form-control" name="searchTerm" value="">
+                    </div>
+
+                    <input type="hidden" name="searchSortBy" value="">
+                    <input type="hidden" name="category" value="">
+                    <div class="form-group">
+                        <label for="filter_price">Mức giá</label>
+                        <select class="form-control" name="price" id="filterPrice">
+                            <option value="" label="All">
+                                Tất cả
+                            </option>
+                            <option value="low" label="Under US$20">
+                                Dưới 100,000 VND US$20
+                            </option>
+                            <option value="med" label="US$20 to US$40">
+                                100,000 VNĐ - 500,000 VNĐ
+                            </option>
+                            <option value="high" label="500+">
+                               500,000+
+                            </option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="filter_availability">Tình trạng</label>
+                        <select class="form-control" name="availability" id="filterAvailability">
+                            <option value="" label="All">
+                                All
+                            </option>
+                            <option value="1" label="In stock (81574)">
+                              Còn hàng 
+                            </option>
+                            <option value="2" label="Pre-order (1869)">
+                               Đặt trước
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filter_search_lang">Ngôn ngữ</label>
+                        <select class="form-control" name="searchLang" id="filterLang">
+                            <option value="" label="All">
+                                All
+                            </option>
+                            <option value="461" label="Vietnamese (8)">
+                                Vietnamese (8)
+                            </option>
+                            <option value="123" label="English">
+                                English 
+                            </option>
+                            <option value="137" label="French">
+                                French
+                            </option>
+                            <option value="404" label="Spanish">
+                                Spanish 
+                            </option>
+                            <option value="150" label="German">
+                                German 
+                            </option>
+                           
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Định dạng</label>
+                        <select class="form-control" name="format" id="filterFormat">
+                            <option value="" label="All">
+                                Tất cả
+                            </option>
+                            <option value="1" label=" Paperback">
+                                Sách in
+                            </option>
+                            <option value="2" label=" Hardback">
+                                Bìa cứng
+                            </option>
+                            <option value="3" label="Audio">
+                                Audio
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group padded-btn-wrap">
+                        <button type="submit" class="btn btn-primary">Lọc kết quả</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="sidebar">
+        <div class="sidebar-section search-filter">
+            <h2>Filter your search</h2>
+            <div class="sidebar-section-content search-filter-sidebar">
+                <form class="filter-menu" action="/bestsellers" method="get">
+                    <div class="form-group">
+                        <label for="searchTerm">Keyword</label>
+                        <input type="text" class="form-control" name="searchTerm" value="">
+                    </div>
+
+                    <input type="hidden" name="searchSortBy" value="">
+                    <input type="hidden" name="category" value="">
+                    <div class="form-group">
+                        <label for="filter_price">Price range</label>
+                        <select class="form-control" name="price" id="filterPrice">
+                            <option value="" label="All">
+                                All
+                            </option>
+                            <option value="low" label="Under US$20">
+                                Under US$20
+                            </option>
+                            <option value="med" label="US$20 to US$40">
+                                US$20 to US$40
+                            </option>
+                            <option value="high" label="US$40 +">
+                                US$40 +
+                            </option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="filter_availability">Availability</label>
+                        <select class="form-control" name="availability" id="filterAvailability">
+                            <option value="" label="All">
+                                All
+                            </option>
+                            <option value="1" label="In stock (81574)">
+                                In stock (81574)
+                            </option>
+                            <option value="2" label="Pre-order (1869)">
+                                Pre-order (1869)
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filter_search_lang">Language</label>
+                        <select class="form-control" name="searchLang" id="filterLang">
+                            <option value="" label="All">
+                                All
+                            </option>
+                            <option value="123" label="English">
+                                English (79071)
+                            </option>
+                            <option value="137" label="French">
+                                French (411)
+                            </option>
+                            <option value="404" label="Spanish">
+                                Spanish (1280)
+                            </option>
+                            <option value="150" label="German">
+                                German (865)
+                            </option>
+                            <option value="246" label="Latin">
+                                Latin (40)
+                            </option>
+                            <option value="202" label="Italian">
+                                Italian (214)
+                            </option>
+                            <option value="79" label="Chinese">
+                                Chinese (66)
+                            </option>
+                            <option value="428" label="Thai">
+                                Thai (2)
+                            </option>
+                            <option value="429" label="Tibetan">
+                                Tibetan (3)
+                            </option>
+                            <option value="446" label="Turkish">
+                                Turkish (3)
+                            </option>
+                            <option value="461" label="Vietnamese (8)">
+                                Vietnamese (8)
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Format</label>
+                        <select class="form-control" name="format" id="filterFormat">
+                            <option value="" label="All">
+                                All
+                            </option>
+                            <option value="1" label="Paperback">
+                                Paperback
+                            </option>
+                            <option value="2" label="Hardback">
+                                Hardback
+                            </option>
+                            <option value="3" label="Audio">
+                                Audio
+                            </option>
+                            <option value="4" label="Baby Books">
+                                Baby Books
+                            </option>
+                            <option value="5" label="Digital">
+                                Digital
+                            </option>
+                            <option value="6" label="Maps">
+                                Maps
+                            </option>
+                            <option value="7" label="Stationery">
+                                Stationery
+                            </option>
+                            <option value="8" label="Toys">
+                                Toys
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group padded-btn-wrap">
+                        <button type="submit" class="btn btn-primary">Refine results</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>*@
+
+    <div class="main-content bestseller-page">
+        <a data-target=".search-filter-sidebar" data-title="Filter your search" class="modal-trigger sidebar-trigger">Filter your search</a>
+
+        <h1>Bestsellers</h1>
+        <div class="head-block">
+            <div id="search-info" class="search-info left-content">
+
+                Showing 1 to 30
+                of  <span class="search-count">1,000</span> results
+            </div>
+            <div class="right-content">
+                <ul class="pagination pagination-sm responsive-pagination">
+                    <li class="active"><a href="/bestsellers">1</a></li>
+                    <li><a>2</a></li>
+                    <li><a>3</a></li>
+                    <li><a>4</a></li>
+                    <li><a>5</a></li>
+                    <li id="next-top" class="next"><a>»</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <div class="block-wrap search  no-heading">
+                <div class="block ">
+                    <div class="tab-wrap module type-book grid tab--2 tab-active">
+
+                        <div class="tab">
+                            @Html.Action("getListBook1", "Home")
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <script type="text/javascript">
+  if (ue) {
+    uet('af');
+  }
+            </script>
+        </div>
+
+
+        <div class="foot-block">
+            <div class="right-content">
+                <ul class="pagination pagination-sm">
+                    <li class="active"><a href="/bestsellers">1</a></li>
+                    <li><a>2</a></li>
+                    <li><a>3</a></li>
+                    <li><a>4</a></li>
+                    <li><a>5</a></li>
+                    <li id="next-bottom" class="next"><a>»</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

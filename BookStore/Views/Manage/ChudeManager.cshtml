@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BookStore.Models.Entities.ChuDe>
+
+@{
+    Layout = "~/Views/Shared/_Layout_Manager.cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Thêm mới chủ đề", "ChudeCreate")
+</p>
+
+<div class="progressbar-heading grids-heading">
+    <h2>Chủ đề</h2>
+</div>
+<div class="panel panel-widget forms-panel">
+    <div class="forms">
+        <div class="form-grids widget-shadow" data-example-id="basic-forms">
+            <div class="form-title">
+                <h4>Danh sách chủ đề</h4>
+            </div>
+            <div class="form-body">
+
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ma)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ten)
+                        </th>
+                        <th>
+                            Thao tác
+                        </th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ma)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ten)
+                            </td>
+                            <td>
+                                <a href="@Url.Action("ChudeDetail", "Manage", new { @ID = item.ma })" itemprop="url">Chi tiết</a> |
+                                <a href="@Url.Action("ChudeUpdate", "Manage", new { @ID = item.ma })" itemprop="url">Chỉnh sửa</a> |
+                                <a href="@Url.Action("ChudeDelete", "Manage", new { @ID = item.ma })" itemprop="url">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

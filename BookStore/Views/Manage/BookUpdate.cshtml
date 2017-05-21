@@ -1,0 +1,115 @@
+﻿@model BookStore.Models.Entities.Sach
+
+@{
+    Layout = "~/Views/Shared/_Layout_Manager.cshtml";
+}
+@*<div class="progressbar-heading grids-heading">
+        <h2>SÁCH </h2>
+    </div>*@
+<div class="form-title">
+    <h4>Form chỉnh sửa thông tin sách</h4>
+</div>
+<div class="panel panel-widget forms-panel">
+    <div class="forms">
+        <div class="form-three widget-shadow">
+
+            <div class="form-body">
+                <div class="form-horizontal" action="BookUpdate" method="post">
+                    <form action="BookUpdate" method="post">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ma, htmlAttributes: new { @class = "control-label col-sm-2" })
+                            @*<label for="exampleInputEmail1">Email address</label>*@
+                            <div class="col-sm-8">
+                                <input type="text" name="ma" readonly="readonly" class="form-control" value="@Model.ma" />
+                                @Html.ValidationMessageFor(model => model.ma, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ten, htmlAttributes: new { @class = "control-label col-sm-2" })
+                            @*<label for="exampleInputPassword1">Password</label>*@
+                            <div class="col-sm-8">
+                                <input type="text" name="ten" class="form-control" value="@Model.ten" />
+                                @Html.ValidationMessageFor(model => model.ten, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.gia, htmlAttributes: new { @class = "control-label col-sm-2" })
+                            <div class="col-sm-8">
+                                <input type="number" name="gia" class="form-control" value="@Model.gia" />
+                                @Html.ValidationMessageFor(model => model.gia, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.mota, htmlAttributes: new { @class = "control-label col-sm-2" })
+                            <div class="col-sm-8">
+                                <input type="text" name="mota" class="form-control" />
+                                @Html.ValidationMessageFor(model => model.mota, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.anhbia, htmlAttributes: new { @class = "control-label col-sm-2" })
+                            <div class="col-sm-8">
+                                <input type="file" name="anhbia" class="form-control" value="@Model.anhbia" />
+                                @Html.ValidationMessageFor(model => model.anhbia, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ngaycapnhat, htmlAttributes: new { @class = "control-label col-sm-2" })
+                            <div class="col-sm-8">
+                                <input type="date" name="ngaycapnhat" class="form-control" value="@Model.ngaycapnhat" />
+                                @Html.ValidationMessageFor(model => model.ngaycapnhat, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.soluongton, htmlAttributes: new { @class = "control-label col-sm-2" })
+                            <div class="col-sm-8">
+                                <input type="number" name="soluongton" class="form-control" value="@Model.soluongton" />
+                                @Html.ValidationMessageFor(model => model.soluongton, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.nhaxuatbanma, htmlAttributes: new { @class = "control-label col-sm-2" })
+                            <div class="col-sm-8">
+                                <input type="number" name="nhaxuatbanma" class="form-control" value="@Model.nhaxuatbanma" />
+                                @Html.ValidationMessageFor(model => model.nhaxuatbanma, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.chudema, htmlAttributes: new { @class = "control-label col-sm-2" })
+                            <div class="col-sm-8">
+                                @*<input type="text" name="chudema" class="form-control" value="@Model.chudema" />*@
+                                <select multiple="" class="form-control1" name="chudema">
+                                    @Html.Action("getList_Chude", "Manage")
+                                    @*<option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                        <option>Option 4</option>
+                                        <option>Option 5</option>*@
+
+                                </select>
+                            </div>
+                        </div>
+                       
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.tacgiama, htmlAttributes: new { @class = "control-label col-sm-2" })
+                            <div class="col-sm-8">
+                                <input type="text"readonly="readonly" name="tacgiama" class="form-control" value="@Model.TacGia.ma" />
+                                @Html.ValidationMessageFor(model => model.tacgiama, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="checkbox">
+                            <label> <input type="checkbox"> Check me out </label>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="submit" class="btn btn-default w3ls-button" value="Save">Cập nhật</button>
+                            </div>
+                        </div>
+                        @*<button type="submit" class="btn btn-default w3ls-button" value="Save">Cập nhật</button>*@
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,75 @@
+﻿
+
+
+@using BookStore.Models.Bean;
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content-wrap">
+
+    <div class="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-section-content">
+                <ul class="category-list sidebar-nav">
+                    @Html.Action("getListCategory", "Home")
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="main-content no-borders home-page">
+        <div>@RenderBody()</div>
+        <div class="block-wrap">
+            <div class="block-header">
+                <h2>Bestselling Books</h2>
+            </div>
+            <div class="block ">
+                <div class="carousel-wrap carousel-begin  carousel-active">
+                    <a class="prev-btn">
+                        <i class="icon-chevron-left"></i>
+                    </a>
+                    <div class="tab-wrap module type-book carousel tab-373 tab-active carousel-active">
+
+                        <div class="tab">
+                            @Html.Action("getListBook1", "Home")
+                        </div>
+                    </div>
+
+                    <a class="next-btn">
+                        <i class="icon-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<a data-target=".category-list" data-title="Categories" data-hash-trigger="#browse-by-category" class="modal-trigger sidebar-trigger">Categories</a>*@
+    @*<div class="block-wrap promo twoThird noHead no-heading">
+            <div class="block ">
+                <div class="tab-wrap module type-paragraph grid tab-4728 tab-active">
+
+                    <div class="tab">
+                        <div class="paragraph-content">
+                            <a><img src="~/Content/image/Homepage_avatar.jpg" width="919" height="293" alt="World Book Day"></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>*@
+
+</div>
+
+
+@{
+    int Amount = 0;
+    double Total = 0;
+    Cart cart = (Cart)Session["cart"];
+    if (cart != null)
+    {
+        Amount = cart.GetAmountInCart();
+        Total = cart.getTotal();
+    }
+}
+
+

@@ -1,0 +1,12 @@
+﻿
+@using BookStore.Models.Entities;
+@using BookStore.Models.Bean;
+
+
+@model List<ChuDe>
+
+@foreach (var item in Model)
+{
+    <option>@item.ten (@item.ma)</option>
+}
+

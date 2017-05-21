@@ -1,0 +1,16 @@
+﻿
+
+@using BookStore.Models.Entities
+@model List<ChuDe>
+
+
+
+@foreach (var item in Model)
+{
+    <li>
+        <a href="@Url.Action("getListBookByCategory", "Home",new { @chudema = item.ma, @tenchude = item.ten })">
+            @item.ten
+        </a>
+    </li>
+}
+

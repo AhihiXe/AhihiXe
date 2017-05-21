@@ -1,0 +1,185 @@
+﻿@using BookStore.Models.Entities;
+@model Book
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Book bk = (Book)ViewData["book"];
+}
+
+
+
+<div class="item-block">
+    <meta itemprop="url" content="/Milk-Honey-Rupi-Kaur/9781449474256">
+    <meta itemprop="author" content="Rupi Kaur">
+    <meta itemprop="publisher" content="Andrews McMeel Publishing">
+    <span itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+        <meta itemprop="name" content="Milk and Honey">
+        <meta itemprop="availability" content="http://schema.org/InStock">
+        <meta itemprop="itemCondition" content="http://schema.org/NewCondition">
+        <meta itemprop="image" content="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/large/9781/4494/9781449474256.jpg">
+    </span>
+
+    <div class="item-img">
+        <div class="item-img-content">
+            <img src="@Url.Content("~/Content/images/" + @bk.Image)" alt="Milk and Honey" class="book-img" itemprop="image">
+            <div class="savings-splat">37%<br>off</div>
+        </div>
+        <div class="copy-content visible-md" data-target=".social-wrap">
+            <ul class="social-wrap">
+                <li class="label">Share</li>
+                <li><a href="mailto:?subject=Sharing a book&amp;body=I saw this book at Book Depository and thought you might like it:%0D%0A%0D%0Ahttps://www.bookdepository.com/Milk-Honey-Rupi-Kaur/9781449474256" target="_blank"><i class="icon-em"></i></a></li>
+
+                <li><a href="/share/book?id=32407718&amp;service=facebook&amp;mess=book" target="_blank"><i class="icon-fb"></i></a></li>
+
+                <li><a target="_blank"><i class="icon-tw"></i></a></li>
+
+                <li><a target="_blank"><i class="icon-pi"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="item-info">
+        <h1 itemprop="name">@bk.Name</h1>
+
+        <div class="rating-wrap hidden-md" itemprop="aggregateRating" itemscope="" itemtype="">
+            <div class="stars">
+                <span class="star full-star"></span>
+                <span class="star full-star"></span>
+                <span class="star full-star"></span>
+                <span class="star full-star"></span>
+                <span class="star half-star"></span>
+            </div>
+            <span itemprop="ratingValue">
+                4.33
+            </span>
+            <span class="rating-count">
+                (51,218 ratings by Goodreads)
+            </span>
+            <meta itemprop="ratingCount" content="51218">
+        </div>
+        <ul class="meta-info hidden-md">
+            <li>Paperback</li>
+            <li>
+                <a>Andrews McMeel</a>
+            </li>
+            <li>
+                <a itemprop="inLanguage"></a>
+            </li>
+        </ul>
+
+        <div class="author-info hidden-md">
+            By (author)&nbsp;
+            <a href="/author/Rupi-Kaur" itemprop="author">@bk.AutherName</a>
+        </div>
+
+        <ul class="formats-wrap hidden-md hidden-xs hidden-sm">
+            <li class="label">Also available in</li>
+            <li>
+                <a class="format-item">
+                    CD-Audio<span class="price">@bk.Cost </span>
+                </a>
+            </li>
+        </ul>
+        <div class="item-excerpt trunc" itemprop="description" data-height="200" style="word-wrap: break-word;">
+            @bk.Details<a class="read-more">show more</a>
+        </div>
+    </div>
+    <div class="item-tools">
+        <div class="checkout-tools">
+            <div class="copy-content visible-md" data-target=".item-block .rating-wrap">
+                <div class="rating-wrap" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+                    @*<div class="stars">
+                            <span class="star full-star"></span>
+                            <span class="star full-star"></span>
+                            <span class="star full-star"></span>
+                            <span class="star full-star"></span>
+                            <span class="star half-star"></span>
+                        </div>*@
+                    <span itemprop="ratingValue">
+                        4.33
+                    </span>
+                    <span class="rating-count">
+                        (51,218 ratings by Goodreads)
+                    </span>
+                    <meta itemprop="ratingCount" content="51218">
+                </div>
+            </div>
+            <div class="price-info-wrap">
+                <div class="item-info-wrap">
+                    <div class="copy-content visible-md" data-target=".meta-info">
+                        <ul class="meta-info">
+                            <li>Paperback</li>
+                            <li>
+                                <a>Andrews McMeel</a>
+                            </li>
+                            <li>
+                                <a itemprop="inLanguage">English</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="copy-content visible-md" data-target=".author-info">
+                        <div class="author-info">
+                            By (author)&nbsp;
+                            <a href="/author/Rupi-Kaur" itemprop="author">Rupi Kaur</a>
+                        </div>
+                    </div>
+                    <div class="price item-price-wrap hidden-xs hidden-sm">
+                        <span class="sale-price">@bk.Sale</span>
+                        <span class="list-price">@bk.Cost</span>
+                        @*<span class="price-save red-text">You save US$5.63</span>*@
+                    </div>
+                    <div class="copy-content visible-md visible-xs visible-sm" data-target=".formats-wrap">
+                        <ul class="formats-wrap">
+                            <li class="label">Also available in</li>
+                            <li>
+                                <a href="/Milk-Honey/9781508229612" class="format-item">
+                                    CD-Audio<span class="price">
+                                        US$8.34
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="free-delivery-text">
+                        <i class="icon-rocket"></i>
+                        <p>Free delivery worldwide</p>
+                    </div>
+                    <div class="availability-text">
+                        <i class="icon-check"></i>
+                        <p>
+                            <span>
+                                Available.
+                                Dispatched from the UK in 2 business days
+                            </span>
+                            <br>
+                            <a target="_blank" href="/help/topic/HelpId/2/When-will-my-order-arrive">When will my order arrive?</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-wrap">
+                <div class="copy-content visible-xs visible-sm" data-target=".item-price-wrap">
+                    <div class="price item-price-wrap">
+                        <span class="sale-price">US$9.36</span>
+                        <span class="list-price">US$14.99</span>
+                        <span class="price-save red-text">You save US$5.63</span>
+                    </div>
+                </div>
+                <a href="/basket/addisbn/isbn13/9781449474256" class="btn btn-primary add-to-basket" data-isbn="9781449474256" data-price="9.36" data-currency="USD" data-show-related="true">Add to basket</a>
+                <a rel="nofollow" href="/account/wishlistItemUpdate?mainAction=add&amp;isbn13=9781449474256" data-isbn="9781449474256" class="btn btn-grey add-to-wishlist">Add to wishlist</a>
+
+                <div class="copy-content visible-xs visible-sm" data-target=".social-wrap">
+                    <ul class="social-wrap">
+                        <li class="label">Share</li>
+                        <li><a href="mailto:?subject=Sharing a book&amp;body=I saw this book at Book Depository and thought you might like it:%0D%0A%0D%0Ahttps://www.bookdepository.com/Milk-Honey-Rupi-Kaur/9781449474256" target="_blank"><i class="icon-em"></i></a></li>
+
+                        <li><a target="_blank"><i class="icon-fb"></i></a></li>
+
+                        <li><a target="_blank"><i class="icon-tw"></i></a></li>
+
+                        <li><a target="_blank"><i class="icon-pi"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

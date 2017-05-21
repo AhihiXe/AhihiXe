@@ -1,0 +1,93 @@
+﻿
+@using BookStore.Models.Entities;
+@{
+    ViewBag.Title = "HomePageContent";
+    Layout = "~/Views/Home/HomePage.cshtml";
+    String tenchude = (String)ViewData["TenChuDe"];
+}
+
+
+
+@model List<Sach>
+
+<div class="block-wrap">
+    <div class="block-header">
+        <h2>@tenchude</h2>
+    </div>
+    <div class="block ">
+        <div class="carousel-wrap carousel-begin  carousel-active">
+            <a class="prev-btn">
+                <i class="icon-chevron-left"></i>
+            </a>
+            @*<div class="block-wrap isbn-recommendation-carousel">
+                <div class="block-header">
+                    <h2>@tenchude</h2>
+                </div>
+                <div>
+                    @if (Model.Count == 0)
+                    {
+                        <h3>Không có sách nào thuộc chủ đề này</h3>
+                    }
+                </div>*@
+            @*<div class="block">
+                <div class="carousel-wrap carousel-begin">
+                    <a class="prev-btn">
+                        <i class="icon-chevron-left"></i>
+                    </a>
+                    <div class="tab-wrap module type-book carousel tab-p13">*@
+            <div class="tab-wrap module type-book carousel tab-373 tab-active carousel-active">
+
+                <div class="tab">
+                    @foreach (var item in Model)
+            {
+                        <div class="book-item">
+                            <div class="item-img">
+                                <a href="@Url.Action("BookDetails1", "Home", new { @ID= item.ma})" itemprop="url">
+                                    <img src="@Url.Content("~/Content/images/" + @item.anhbia)" alt="Good Night Stories for Rebel Girls">
+                                </a>
+                            </div>
+
+                            <div class="item-info">
+                                <h3 class="title">
+                                    <a href="@Url.Action("BookDetails1", "Home", new { @ID= item.ma})">@item.ten<br></a>
+                                </h3>
+                                <div class="rating-wrap">
+                                    <div class="price-wrap">
+                                        <p class="price">@item.gia</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item-actions">
+                                <div class="btn-wrap">
+                                    <a rel="nofollow" class="btn btn-sm btn-primary add-to-basket" data-ref="carousel"
+                                       @*data-isbn="9780141986005" data-currency="USD" data-price="23.41" data-show-related="true"*@
+                                       href="/ShoppingCart/Add/@item.ma">
+                                        Thêm vào giỏ hàng
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+            <a class="next-btn">
+                <i class="icon-chevron-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+@using BookStore.Models.Bean;
+@{
+    int Amount = 0;
+    double Total = 0;
+    Cart cart = (Cart)Session["cart"];
+    if (cart != null)
+    {
+        Amount = cart.GetAmountInCart();
+        Total = cart.getTotal();
+    }
+}
